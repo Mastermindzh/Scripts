@@ -1,3 +1,5 @@
+//build: gcc ani2png.c -o ani2png
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
