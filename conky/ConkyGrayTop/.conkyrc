@@ -10,7 +10,7 @@ draw_borders no
 draw_graph_borders no
 border_margin 3
 draw_shades yes
-gap_x -20
+gap_x -30
 gap_y 0
 alignment top_right
 update_interval 1
@@ -20,8 +20,8 @@ use_xft yes
 xftfont sans:size=7
 override_utf8_locale yes
 use_spacer none
-minimum_size 1910 0
+minimum_size 1909 0
 own_window_argb_value 0
 own_window_transparent no
 TEXT
-${color 4F8FC7}${font sans:size=7}System info: ${color}${font} Date: ${color e0e0e0}${font sans:size=7}${time %d/%m/%y} ${color}${font} | Time: ${color e0e0e0}${font sans:size=7}${time %H:%M}${color}${font} |  Kernel: ${color e0e0e0}${font sans:size=7}$kernel${color}${font} |Uptime: ${color e0e0e0}${font sans:size=7}${uptime_short}${color}${font} |  Cpu: ${color e0e0e0}${font sans:size=7}${cpu}%${color}${font} | Ram: ${color e0e0e0}${font sans:size=7}${memperc}%${color}${font} | Swap: ${color e0e0e0}${font sans:size=7}${swapperc}%${color}${font} | hdd ${color e0e0e0}${font sans:size=7}${execi 3600 df -h | grep /dev/sda3 | cut -c35-38} Available${color}${font}                                           ${color 4F8FC7}${font sans:size=7}Package management: ${color}${font} Packages: ${color e0e0e0}${font sans:size=7}${execpi 3600 pacman -Q | wc --lines} ${color}${font} | Updates available: ${color e0e0e0}${font sans:size=7} ${execpi 3600 kalu -m | grep updates | cut -c 1-10 | grep -oE '[0-9]{1,9}'} ${color}${font}                                                                                                                              ${color 4F8FC7}${font sans:size=7}Temperatures: ${color}${font} Core 1: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 0' | cut -c18-24}${color}${font} | Core 2: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 1' | cut -c18-24}${color}${font} | Core 3: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 2' | cut -c18-24}${color}${font} | Core 4: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 3' | cut -c18-24}${color}${font} | GPU: ${color e0e0e0}${font sans:size=7}${execi 8 nvidia-settings -q gpucoretemp | grep 'dev:0.0' | cut -c38-39}°C${color}${font}
+ ${color 4F8FC7}${font sans:size=7} System info: ${color}${font} Date: ${color e0e0e0}${font sans:size=7}${time %d/%m/%y} ${color}${font} | Time: ${color e0e0e0}${font sans:size=7}${time %H:%M}${color}${font} |  Kernel: ${color e0e0e0}${font sans:size=7}$kernel${color}${font} | Uptime: ${color e0e0e0}${font sans:size=7}${uptime_short}${color}${font} |  Cpu: ${color e0e0e0}${font sans:size=7}${cpu}%${color}${font} | Ram: ${color e0e0e0}${font sans:size=7}${memperc}%${color}${font} | Swap: ${color e0e0e0}${font sans:size=7}${swapperc}%${color}${font} | hdd ${color e0e0e0}${font sans:size=7}${execi 3600 df -h | grep /dev/sda3 | cut -c35-38} Available${color}${font}                                        ${color 4F8FC7}${font sans:size=7}Package management: ${color}${font} Packages: ${color e0e0e0}${font sans:size=7}${execpi 3600 pacman -Q | wc --lines} ${color}${font} | Updates available: ${color e0e0e0}${font sans:size=7} ${execpi 3600 bash /home/mastermindzh/Dropbox/Linux-Scripts/bash/checkupdates.sh} ${color}${font}                                                                                                                       ${color 4F8FC7}${font sans:size=7}Temperatures: ${color}${font} Core 1: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 0' | cut -c18-24}${color}${font} | Core 2: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 1' | cut -c18-24}${color}${font} | Core 3: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 2' | cut -c18-24}${color}${font} | Core 4: ${color e0e0e0}${font sans:size=7}${execi 8 sensors | grep 'Core 3' | cut -c18-24}${color}${font} | GPU: ${color e0e0e0}${font sans:size=7}${execi 8 nvidia-settings -q gpucoretemp | grep 'dev:0.0' | cut -c38-39}°C${color}${font}
