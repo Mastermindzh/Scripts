@@ -5,7 +5,7 @@ apps="vlc totem rhythmbox banshee mplayer gnome-mplayer xnoise"
 for app in $apps
 do
 	pat="([^\w-]$app)"
-	if ps ux | grep -P $pat | grep -vq grep; then
+	if ps ux | grep -P "$pat" | grep -vq grep; then
 		program=$app
 	else :
 	fi
@@ -13,19 +13,19 @@ done
 
 while true
 do
-file=`lsof -F n -c "$program" | egrep -i "^.*\.(mp3|flac|ogg|m4a|wma|wav)$" | sed 's/^n//g'`
+file=$(lsof -F n -c "$program" | egrep -i "^.*\.(mp3|flac|ogg|m4a|wma|wav)$" | sed 's/^n//g')
 if [ ! -z "$file" ]; then
 	if [ "$oldfile" = "$file" ];then
 		:
 	else
 		oldfile=$file
-		title=`id3info "$file" | grep "Title" | sed 's/^===.*[:].//g'`
-		perf=`id3info "$file" | grep "performer" | sed 's/^===.*[:].//g'`
-		album=`id3info "$file" | grep "Album" | sed 's/^===.*[:].//g'`
-		year=`id3info "$file" | grep "Year" | sed 's/^===.*[:].//g'`
-		track=`id3info "$file" | grep "Track" | sed 's/^===.*[:].//g'`
-		bitrate=`id3info "$file" | grep "Bitrate" | sed 's/^===.*[:].//g'`
-		frequency=`id3info "$file" | grep "Frequency" | sed 's/^===.*[:].//g'`
+		title=$(id3info "$file" | grep "Title" | sed 's/^===.*[:].//g')
+		perf=$(id3info "$file" | grep "performer" | sed 's/^===.*[:].//g')
+		album=$(id3info "$file" | grep "Album" | sed 's/^===.*[:].//g')
+		year=$(id3info "$file" | grep "Year" | sed 's/^===.*[:].//g')
+		track=$(id3info "$file" | grep "Track" | sed 's/^===.*[:].//g')
+		bitrate=$(id3info "$file" | grep "Bitrate" | sed 's/^===.*[:].//g')
+		frequency=$(id3info "$file" | grep "Frequency" | sed 's/^===.*[:].//g')
 		if [ -z "$title" ] && [ -z "$perf" ]; then
 			echo "No MP3 info"
 		else  
