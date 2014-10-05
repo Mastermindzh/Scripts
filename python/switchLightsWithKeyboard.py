@@ -13,8 +13,6 @@ fcntl.fcntl(fd, fcntl.F_SETFL, oldflags | os.O_NONBLOCK)
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-
-
 # method to turn a light on or off
 def flip ( i ):
 	if GPIO.input(i) == 1:
