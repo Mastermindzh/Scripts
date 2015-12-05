@@ -61,13 +61,15 @@ if len(sys.argv) != 2:
 else:
   upper_limit=int(sys.argv[1])
  
-# Record the current time (starting time)
-startTime = datetime.datetime.now()
- 
+
 # Start the process
 emptyline()
 print "Starting with an upper limit of: %d in 3 sec" %(upper_limit)
 time.sleep(3)
+
+# Record the current time (starting time)
+startTime = datetime.datetime.now()
+ 
 emptyline()
 count = count_primes(upper_limit)
 emptyline()
