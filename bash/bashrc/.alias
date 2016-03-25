@@ -1,0 +1,79 @@
+#upload text to sprunge.us
+#USAGE cat file.txt | sprunge
+alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+
+## pacman and yaourt
+alias aur='yaourt --noconfirm'
+alias update='pacman -Syyu'
+
+## games
+alias mc='java -jar Minecraft.jar -Xms2048m -Xmx2048m'
+
+## systeminfo
+alias meminfo='free -mth'
+alias cpuinfo='lscpu'
+alias hddinfo='df -h'
+alias temp='watch "sensors | grep Core"'
+
+#show 5 most memory consuming apps
+alias psmem='ps auxf | sort -nr -k 5 | head -n 5'
+
+##utility
+
+# show file content without comment lines
+alias nocomment='grep -Ev '\''^(#|$)'\'''
+
+#show directories
+alias dirs='ls -FlA | grep :*/' 
+
+#show executables
+alias execx='ls -FlA | grep -v \*' 
+
+#ls -al
+alias la='ls -al'
+
+# show external ip
+alias cmyip='curl http://ipecho.net/plain; echo'
+
+## default command fixes :P
+alias mkdir='mkdir -p'
+alias wget='wget -c'
+alias ls='ls --color=auto'
+
+## Functions
+
+# function to cd up a couple of times
+# USAGE: up 3 (goes up 3 directories)
+up(){ 
+	DEEP=$1; 
+	[ -z "${DEEP}" ] && { DEEP=1; }; 
+	for i in $(seq 1 ${DEEP}); do 
+	cd ../; 
+	done; 
+}
+# function to extract ... well anything really
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1       ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+} 
+
+myuptime () {
+  uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
+  return;
+}
