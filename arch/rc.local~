@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-# /usr/local/sbin/rc.local: Local multi-user startup script.
-mount -a
-java -jar /opt/portcheck.jar 3 > /dev/null &
-bash /opt/titleinfo.sh > /dev/null &
-sysctl -p
-modprobe vboxdrv
-/opt/copy/CopyAgent > /dev/null &

@@ -13,16 +13,16 @@ mogrify -path "./mobile/" -geometry 300x -format "-mobile.$ext" *.$ext
 cd ./mobile/
 
 for f in *.$ext; do
-        f=${f%.$ext}
-        mv -- "${f}.$ext" "${f//./}.$ext"
+	f=${f%.$ext}
+	mv -- "${f}.$ext" "${f//./}.$ext"
 done
 
 cd ..
 cd $myDir/desktop/
 
 for f in *.$ext; do
-        f=${f%.$ext}
-        mv -- "${f}.$ext" "${f//./}.$ext"
+	f=${f%.$ext}
+	mv -- "${f}.$ext" "${f//./}.$ext"
 done
 
 echo "Alle foto's zijn succesvol omgezet!"
