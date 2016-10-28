@@ -37,7 +37,7 @@ alias execx='ls -FlA | grep -v \*'
 alias la='ls -al'
 
 # show external ip
-alias cmyip='curl http://ipecho.net/plain; echo'
+alias cmyip='curl -s http://ipecho.net/plain; echo'
 
 ## default command fixes :P
 alias mkdir='mkdir -p'
@@ -77,11 +77,13 @@ extract () {
    fi
 } 
 
+# function to return uptime in a human readable format
 myuptime () {
   uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
   return;
 }
 
+# function to check whether a specific host is up
 isup(){
 	if ! [ -z "$1" ]; then
 		ping -c 3 $1 > /dev/null 2>&1
@@ -91,4 +93,9 @@ isup(){
 			echo "$1 Seems to be online";
 		fi
 	fi 
+}
+
+# function to print a line across the screen
+printLine(){
+     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
