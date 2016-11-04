@@ -3,7 +3,17 @@ In the "docker-runs" folder you'll find various bash files with the "docker run 
 
 The other folders are product specific (for example Elasticsearch) and will include all scripts needed to run the docker.
 
-[TOC]
+- [Dockerscripts](#dockerscripts)
+  - [Installing docker](#installing-docker)
+      - [Installing docker from the Ubuntu repositories](#installing-docker-from-the-ubuntu-repositories)
+      - [Installing docker from the official repositories](#installing-docker-from-the-official-repositories)
+      - [Installing docker compose](#installing-docker-compose)
+      - [Automating docker](#automating-docker)
+    - [Auto loading containers](#auto-loading-containers)
+      - [Creating a systemd init script](#creating-a-systemd-init-script)
+      - [Adding docker services to the init script.](#adding-docker-services-to-the-init-script)
+      - [adding new docker instances](#adding-new-docker-instances)
+
 
 ## Installing docker
 ** This install guide will show you how to install docker on a Ubuntu machine running with systemd. (Arch users have everything available in the repo)**
