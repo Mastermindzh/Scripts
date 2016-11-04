@@ -1,0 +1,29 @@
+version: '2'
+services:
+    elasticsearch:
+      image: elasticsearch:5
+      command: elasticsearch
+      environment:
+        # This helps ES out with memory usage
+        - ES_JAVA_OPTS=-Xmx2g -Xms2g
+      volumes:
+        # Persist elasticsearch data to a volume
+        - elasticsearch:/usr/share/elasticsearch/data
+        # Extra ES configuration options
+        - ./es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      ports:
+        - "9200:9200"
+        - "9300:9300"
+
+    kibana:
+      image: kibana:5
+      environment:
+        # Point Kibana to the elasticsearch container
+        - ELASTICSEARCH_URL=http://elasticsearch:9200
+      ports:
+        - "5601:5601"
+      links:
+        - elasticsearch
+
+volumes:
+  elasticsearch:

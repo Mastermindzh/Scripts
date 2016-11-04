@@ -1,0 +1,13 @@
+[Unit]
+Description="Startup script /usr/local/sbin/rc.local"
+ConditionFileIsExecutable=/usr/local/sbin/rc.local
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/rc.local
+TimeoutSec=0
+RemainAfterExit=yes
+SysVStartPriority=99
+
+[Install]
+WantedBy=multi-user.target

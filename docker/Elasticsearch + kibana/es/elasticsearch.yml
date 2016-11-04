@@ -1,0 +1,13 @@
+# Network settings
+network.bind_host: 0.0.0.0
+cluster.name: elasticsearch
+node.name: "logstash"
+discovery.zen.minimum_master_nodes: 1
+http.cors.enabled : true
+http.cors.allow-origin : "*"
+http.cors.allow-methods : OPTIONS, HEAD, GET, POST, PUT, DELETE
+http.cors.allow-headers : X-Requested-With,X-Auth-Token,Content-Type, Content-Length
+script.inline: true
+script.engine.groovy.inline.search: true
+script.engine.groovy.inline.aggs: true
+script.engine.groovy.inline.update: true
