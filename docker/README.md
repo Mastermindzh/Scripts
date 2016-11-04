@@ -9,7 +9,7 @@ The other folders are product specific (for example Elasticsearch) and will incl
       - [Installing docker from the official repositories](#installing-docker-from-the-official-repositories)
       - [Installing docker compose](#installing-docker-compose)
       - [Automating docker](#automating-docker)
-    - [Auto loading containers](#auto-loading-containers)
+  - [Auto loading containers](#auto-loading-containers)
       - [Creating a systemd init script](#creating-a-systemd-init-script)
       - [Adding docker services to the init script.](#adding-docker-services-to-the-init-script)
       - [adding new docker instances](#adding-new-docker-instances)
