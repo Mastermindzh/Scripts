@@ -21,7 +21,7 @@ printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 echo "Date: ${DAYS[$(date +%u)]} $(date +%d) ${MONTHS[$(date +%m)]} $(date +%Y)"
 echo ""
 
-echo "Ext: $(curl -s http://ipecho.net/plain; echo)"
+echo "Ext: $(curl -s http://www.ipecho.net/plain; echo)"
 
 echo "IP : $(ip route get 8.8.8.8 | awk 'NR==1 {print $NF}')"
 
