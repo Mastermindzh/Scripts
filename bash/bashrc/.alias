@@ -4,6 +4,7 @@ alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 
 ## pacman and yaourt
 alias aur='yaourt --noconfirm'
+alias update-aur='yaourt -Syyu --noconfirm --aur'
 alias update='sudo pacman -Syyu'
 
 ## games
